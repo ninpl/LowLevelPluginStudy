@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <math.h>
-#include "LowLevelPlugin.h"
+#include "main.h"
 
 extern "C" int ** EXPORT_API fillArray(int size)
 {
