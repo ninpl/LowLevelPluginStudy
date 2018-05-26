@@ -1,28 +1,8 @@
-#ifndef __MAIN_H__
-#define __MAIN_H__
-
-#include <windows.h>
-
-/*  To use this exported function of dll, include this header
- *  in your project.
- */
-
-#ifdef BUILD_DLL
-    #define DLL_EXPORT __declspec(dllexport)
+#pragma once
+#if UNITY_METRO
+#define EXPORT_API __declspec(dllexport) __stdcall
+#elif UNITY_WIN
+#define EXPORT_API __declspec(dllexport)
 #else
-    #define DLL_EXPORT __declspec(dllimport)
+#define EXPORT_API
 #endif
-
-
-#ifdef __cplusplus
-extern "C"
-{
-#endif
-
-void DLL_EXPORT SomeFunction(const LPCSTR sometext);
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif // __MAIN_H__
